@@ -137,3 +137,17 @@ for (let contentLink of contentLinks) {
     contentLink.classList.add('active');
   });
 }
+
+/* Carousel content for @media (min-width: 320px)   if (bodyWidthVal < 576) */
+
+if (bodyWidthVal < 576) {
+  const colsWrapper = document.querySelector('.xs-recommended .row');
+  const cardsAll = document.getElementById('carouselRecommended').querySelectorAll('.card');
+  for (let card of cardsAll) {
+    let col = document.createElement('div');
+    col.classList.add('col', 'mb-4');
+    let cardClone = card.cloneNode(true);    //cloning nodes
+    col.appendChild(cardClone);
+    colsWrapper.appendChild(col);
+  }
+}
