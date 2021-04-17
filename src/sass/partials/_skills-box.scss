@@ -1,0 +1,65 @@
+.skills-box {
+  position: relative;
+  transition: .5s ease;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+
+  .skill {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    box-shadow: $box-shadow-1;
+  }
+}
+
+/* Media */
+
+@media (min-width: 320px) {
+  .skills-box {
+    margin-bottom: 20px;
+    height: 78px;
+  }
+}
+
+@media (min-width: 360px) {
+  .skills-box {
+    height: 91px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 575px) and (orientation: landscape) {
+  .skills-box {
+    height: 148px;
+  }
+}
+
+@media (min-width: 576px) {
+  .skills-box {
+    margin-bottom: 25px;
+    height: 148px;
+  }
+}
+
+@media (min-width: 768px) {
+  .skills-box {
+    height: 164px;
+  }
+}
+
+@media (min-width: 992px) {
+  .skills-box {
+    height: 241px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .skills-box {
+    height: 298px;
+  }
+}

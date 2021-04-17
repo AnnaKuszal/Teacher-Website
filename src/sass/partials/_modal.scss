@@ -1,0 +1,114 @@
+.modal-1 {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  height: 90vh;
+  margin-top: 10vh;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.8);
+
+  .modal-content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+  }
+
+  .m-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+
+    .m-close:hover,
+    .m-close:focus {
+      color: #bbb;
+      text-decoration: none;
+    }
+  }
+}
+
+.modal-content {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0);}
+
+  to {transform: scale(1);}
+}
+
+
+/* Media */
+
+@media (min-width: 320px) {
+  .modal-1 {
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    .modal-content {
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+// @media (min-width: 360px) {}
+
+@media (min-width: 576px) {
+  .modal-1 {
+    width: 100%;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
+    .modal-content {
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+// @media (min-width: 768px) {}
+
+@media (min-width: 992px) {
+  .modal-1 {
+    .m-close {
+      font-size: 70px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-1 {
+    width: 80%;
+    left: 10%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
+    .m-close {
+      font-size: 50px;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .modal-1 {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+  }
+}
