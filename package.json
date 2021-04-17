@@ -1,0 +1,73 @@
+{
+  "name": "teacher-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "init-project": "npm install && npm-run-all init:*",
+    "init:dirs": "mkdirp dist src/sass src/css src/vendor src/images src/js",
+    "init:files": "touch README.md src/index.html src/sass/style.scss src/js/script.js",
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+    "init:gitignore:custom": "echo \"dist\" >> .gitignore",
+    "test": "npm-run-all test:*",
+    "test:html": "globstar nu-html-checker dist/*.html",
+    "test:js": "eslint src/js/",
+    "test:scss": "stylelint src/sass/",
+    "build": "npm-run-all build:* test",
+    "build:clean": "mkdirp dist && rm -r dist && mkdirp dist",
+    "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
+    "build:sass": "node-sass --output-style compact -o dist/css src/sass",
+    "build:autoprefixer": "postcss dist/css/*.css --use autoprefixer -r",
+    "build:css-minify": "css-minify -d src/css/ -o dist/css/",
+    "build:js": "terser src/js/*.js -o dist/js/script.min.js  -c -m",
+    "build:images": "imagemin src/images/* --out-dir=src/images/converted --plugin.webp.quality=80",
+    "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
+    "build-dev:sass": "node-sass --output-style expanded --source-map true -o dist/css src/sass",
+    "server": "json-server --port 3131 --no-cors --delay 250 --watch dist/db/app.json",
+    "watch": "npm-run-all build build-dev -p watch:* server",
+    "watch:browsersync": "browser-sync start --server dist --files \"dist/**/*\" --ignore \"dist/db/**/*\"",
+    "watch:sassprefixer": "onchange \"src/sass/**/*.scss\" -- npm run build-dev",
+    "watch:eslint": "eslint src/js/",
+    "watch:images": "onchange \"src/images/* -- npm run build:images\"",
+    "watch:copy": "onchange -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" -- copyfiles -a -u 1 {{changed}} dist"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "copyfiles": "^2.4.1",
+    "css-minify": "^1.1.0",
+    "eslint": "^7.18.0",
+    "eslint-watch": "^7.0.0",
+    "globstar": "^1.0.0",
+    "imagemin": "^7.0.1",
+    "imagemin-cli": "^6.0.0",
+    "imagemin-webp": "^6.0.0",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "nu-html-checker": "^0.1.0",
+    "onchange": "^7.1.0",
+    "stylelint": "^13.9.0",
+    "stylelint-scss": "^3.18.0",
+    "terser": "^5.5.1"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "autoprefixer": "^10.2.3",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1",
+    "json-server": "^0.16.3",
+    "lite-youtube-embed": "^0.2.0",
+    "popper.js": "^1.16.1",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}
