@@ -1,0 +1,159 @@
+section {
+  margin-bottom: 20px;
+
+  .container {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    background-color: $background-color-3;
+    box-shadow: $box-shadow-1;
+  }
+
+}
+
+.about {
+  .row div p {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .row div p:nth-of-type(2),
+  .row div p:nth-of-type(3),
+  .row div p:nth-of-type(4),
+  .row div p:nth-of-type(5) {
+    margin-top: 2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: -15px;
+      width: 50px;
+      height: 2px;
+      transform: translateX(-50%);
+      background-color: $background-color-2;
+    }
+  }
+
+  .row div p:nth-of-type(1),
+  .row div p:nth-of-type(5) {
+    margin-bottom: 1rem;
+  }
+
+  .row div ul {
+    list-style-type: none;
+    padding-left: 0;
+    list-style-position: outside;
+
+    li {
+      font-style: italic;
+      text-align: left;
+    }
+
+    li::before {
+      content: "\2022";
+      font-style: normal;
+      display: inline-block;
+      font-size: 1rem;
+      padding-right: 8px;
+      color: $background-color-2;
+    }
+  }
+
+  #rollup {
+    font-weight: 700;
+    color: $text-color-2;
+    display: inline;
+    font-style: normal;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  #rollup-content {
+    display: none;
+  }
+
+  #rollup-content.show {
+    display: block;
+  }
+}
+
+
+/* Media */
+@media (min-width: 320px) {
+  section .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .about {
+    .row div ul {
+      width: 90%;
+      margin: 0 auto;
+      padding-left: 10px;
+      font-size: 0.9rem;
+    }
+
+    .row div span {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-style: italic;
+      width: 90%;
+      text-align: left;
+    }
+  }
+}
+
+// @media (min-width: 360px) {}
+
+@media (min-width: 576px) {
+  section .container {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .about {
+    .row div ul {
+      padding-left: 0;
+    }
+
+    .row div ul,
+    .row div span {
+      width: 70%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  section .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+
+  .about {
+    .row div {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .row div ul,
+    .row div span {
+      width: 65%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  section .container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+// @media (min-width: 1200px) {}
+
+// @media (min-width: 1920px) {}
