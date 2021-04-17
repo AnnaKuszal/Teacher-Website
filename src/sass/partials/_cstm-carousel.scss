@@ -1,0 +1,250 @@
+/* SKILLS */
+
+.skills .cstm-carousel {
+  .cstm-carousel-indicators {
+    margin-bottom: 0;
+
+    li {
+      height: 5px;
+      background-color: $background-color-2;
+    }
+  }
+
+  .cstm-carousel-inner {
+    position: relative;
+    width: 90%;          // related elements
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 25px;
+
+    .cstm-carousel-item {
+      position: relative;
+      float: left;
+      width: 100%;
+      margin-right: -100%;
+      padding: 30px 25px;
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  .cstm-carousel-control-prev,
+  .cstm-carousel-control-next {
+    width: 4%;      // related elements
+    background-color: $background-color-2;
+    opacity: 1;
+    border-radius: 8px;
+  }
+}
+
+
+/*RECOMMENDED */
+
+.recommended .cstm-carousel {
+  position: relative;
+
+  .cstm-carousel-inner {
+    position: relative;
+    width: 90%;          // related elements
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 25px;
+
+    .cstm-carousel-item {
+      position: relative;
+      float: left;
+      width: 100%;
+      margin-right: -100%;
+      padding: 30px 25px;
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  .cstm-carousel-control-prev,
+  .cstm-carousel-control-next {
+    width: 4%;      // related elements
+    background-color: $background-color-6;
+    opacity: 1;
+    border-radius: 8px;
+  }
+}
+
+/* Media */
+
+/*SKILLS */
+
+@media (min-width: 320px) {
+  .skills .cstm-carousel {
+    .cstm-carousel-inner {
+      .cstm-carousel-item {
+        padding: 0;
+        padding-top: 10px;
+
+        .row {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        .col {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    }
+
+    .cstm-carousel-control-prev,
+    .cstm-carousel-control-next {
+      display: none;
+    }
+  }
+}
+
+// @media (min-width: 360px) {}
+// @media (min-width: 576px) {}
+
+@media (min-width: 768px) {
+  .skills .cstm-carousel {
+    .cstm-carousel-inner {
+      .cstm-carousel-item {
+        padding: 25px 25px;
+
+        .row {
+          margin-left: -15px;
+          margin-right: -15px;
+        }
+
+        .col {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    }
+
+    .cstm-carousel-control-prev,
+    .cstm-carousel-control-next {
+      display: flex;
+    }
+  }
+}
+
+// @media (min-width: 992px) {}
+// @media (min-width: 1200px) {}
+// @media (min-width: 1920px) {}
+
+
+/*RECOMMENDED */
+
+@media (min-width: 320px) {
+  .recommended {
+    #carouselRecommended {
+      display: none;
+    }
+
+    .xs-recommended {
+      width: 100%;
+      height: 400px;
+      overflow-y: scroll;
+      border: $border-basic;
+      padding: 10px 10px 0;
+    }
+  }
+}
+
+// @media (min-width: 360px) {}
+
+@media (min-width: 576px) {
+  .recommended {
+    .xs-recommended {
+      display: none;
+    }
+
+    #carouselRecommended {
+      display: block;
+      margin-bottom: 50px;
+    }
+  }
+
+  .recommended .cstm-carousel {
+    .cstm-carousel-inner {
+      padding-bottom: 70px;
+      width: 100%;
+
+      .cstm-carousel-item {
+        padding: 0;
+      }
+    }
+
+    .cstm-carousel-control-prev,
+    .cstm-carousel-control-next {
+      position: absolute;
+      bottom: 0;
+      top: 92%;
+      width: 49%;
+      background-color: $background-color-6;
+      border-radius: 8px;
+    }
+
+    .cstm-carousel-control-prev {
+      left: 29%;
+      width: 20%;
+    }
+
+    .cstm-carousel-control-next {
+      right: 29%;
+      width: 20%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .recommended {
+    #carouselRecommended {
+      margin-bottom: 120px;
+    }
+  }
+
+  .recommended .cstm-carousel {
+    .cstm-carousel-inner {
+      padding-bottom: 20px;
+    }
+
+    .cstm-carousel-control-prev,
+    .cstm-carousel-control-next {
+      top: 100%;
+      bottom: -10%;
+    }
+  }
+}
+
+// @media (min-width: 992px) {}
+
+@media (min-width: 1200px) {
+  .recommended {
+    #carouselRecommended {
+      margin-bottom: 50px;
+    }
+  }
+
+  .recommended .cstm-carousel {
+    .cstm-carousel-inner {
+      width: 90%;
+    }
+
+    .cstm-carousel-control-prev,
+    .cstm-carousel-control-next {
+      position: absolute;
+      top: 40%;
+      bottom: 40%;
+      width: 4%;
+    }
+
+    .cstm-carousel-control-prev {
+      left: 0;
+    }
+
+    .cstm-carousel-control-next {
+      right: 0;
+    }
+  }
+}
+
+// @media (min-width: 1920px) {}
