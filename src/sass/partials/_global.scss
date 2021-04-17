@@ -1,0 +1,36 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $background-color;
+  font-family: $text-font;
+  font-size: $paragraph-font-size;
+  font-weight: 400;
+  color: $text-color;
+  text-align: center;
+}
+
+/* Media */
+
+@media (min-width: 320px) {
+  body {
+    line-height: 1.5;
+  }
+}
+
+// @media (min-width: 360px) {}
+
+// @media (min-width: 576px) {}
+
+// @media (min-width: 768px) {}
+
+@media (min-width: 992px) {
+  body {
+    line-height: 1.7;
+  }
+}
+
+// @media (min-width: 1200px) {}
+
+// @media (min-width: 1920px) {}

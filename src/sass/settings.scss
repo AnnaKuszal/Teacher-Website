@@ -1,0 +1,77 @@
+$fa-font-path: "../webfonts";
+
+/* Colors */
+$background-color: #e6e6e6;
+$background-color-2: #0fb9b1;
+$background-color-3: #ffffff;
+$background-color-4: #28313a;
+$background-color-5: rgba(7, 153, 146, 0.3);
+$background-color-6: #3475dd;
+
+$text-color: #a6a6a6;
+$text-color-2: #0fb9b1;
+$text-color-3: #ffffff;
+$text-color-4: #3475dd;
+
+/* Fonts */
+$logo-font: 'Langar', cursive;
+$header-title: 'Russo One', sans-serif;
+$text-font: 'Roboto', sans-serif, "Open Sans", Helvetica, Arial;
+
+/* Font sizes */
+$paragraph-font-size: 16px;
+
+/* Borders */
+
+$border-basic: 1px solid rgba(7, 153, 146, 0.4);
+
+
+/* Shadows */
+$box-shadow-1: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$box-shadow-2: 0 4px 8px 0 rgba(7, 153, 146, 0.5), 0 6px 20px 0 rgba(7, 153, 146, 0.3);
+$box-shadow-3: 0 4px 10px 0 rgba(255, 255, 255, 1), 0 6px 20px 10px rgba(255, 255, 255, 0.7);
+$box-shadow-4: 0 0 10px 0 rgba(255, 255, 255, 0.5), 0 0 15px 0 rgba(255, 255, 255, 0.6);
+
+$text-shadow-1: 2px 2px 15px #000000, 2px 2px 10px #000000, 2px 2px 5px #000000;
+$text-shadow-2: 2px 2px 15px #079992, 2px 2px 10px #079992, 2px 2px 5px #079992;
+
+/* Transitions */
+$transition: all 0.5s;
+
+
+/* Breakpoints */ /*Most popular devices screen sizes*/
+/*
+
+Custom breakpoint:
+min-width: 320px
+  320x533 mobile
+
+min-width: 360px
+  (1) 360x640 mobile
+  (3) 414x896 mobile
+
+Bootstrap breakpoints:
+SM
+min-width: 576px
+  (4) 601x962 tablet
+
+MD
+min-width: 768px
+  (1) 768x1024 tablet
+  (3) 800x1280 tablet
+
+LG
+min-width: 992px
+  (6) 1024x1366 tablet
+
+XL
+min-width: 1200px
+  (7/2) 1280x800 desktop/tablet
+  (4) 1440x900 desktop
+  (1) 1366x768 desktop
+
+Custom breakpoint:
+min-width: 1920px
+  (2) 1920x1080 desktop
+
+*/
