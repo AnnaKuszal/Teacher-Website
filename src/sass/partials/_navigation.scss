@@ -1,0 +1,316 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10vh;
+  z-index: 50;
+  background-color: $background-color-4;
+  box-shadow: 0 4px 8px 0 rgba(7, 153, 146, 0.5), 0 6px 20px 0 rgba(7, 153, 146, 0.3);
+
+  .container {
+    height: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.navigation {
+  .brand-logo {
+    font-family: $logo-font;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: $text-color-3;
+
+    span {
+      color: $text-color-2;
+    }
+  }
+
+  .top-menu {
+    position: relative;
+
+    .openbtn,
+    .closebtn {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: none;
+      @include menuBtnStyle;
+    }
+
+    .openbtn:hover
+    .closebtn:hover {
+      color: $text-color-2;
+      background-color: $background-color-3;
+    }
+
+    i {
+      margin: 0;
+      color: $text-color-3;
+      border: none;
+      font-size: 20px;
+      width: 30px;
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+}
+
+.navigation ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+
+  li {
+    a {
+      @include a-btnStyle;
+      @include hover-animation;
+
+      &:hover,
+      &.active {
+        @include a-btnHoverActive;
+      }
+    }
+  }
+}
+
+
+/* Media */
+
+@media (min-width: 320px) {
+  .navigation {
+    .brand-logo {
+      font-size: 1rem;
+    }
+
+    .top-menu {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: $background-color-4;
+
+      .openbtn {
+        display: block;
+        padding: 5px;
+        right: 0;
+      }
+
+      .closebtn {
+        display: none;
+        padding: 5px;
+        right: 0;
+      }
+    }
+  }
+
+  .navigation ul {
+    position: absolute;
+    z-index: -1;
+    top: 10vh;
+    transform: translateY(-100%);
+    right: -15px;
+    left: 0;
+    padding-top: 1rem;
+    background-color: $background-color-4;
+    transition: $transition;
+
+    li {
+      margin-bottom: 20px;
+      padding: 0 20px;
+
+      a {
+        font-size: 0.875rem;
+        padding: 10px;
+      }
+    }
+  }
+
+  .navigation ul.show {
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 360px) {
+  .navigation ul {
+    li {
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .navigation ul.show {
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 360px) and (max-width: 575px) and (orientation: landscape) {
+  .navigation ul {
+    right: -15px;
+    left: 30%;
+
+    li {
+      margin-bottom: 15px;
+      padding: 0 20px;
+
+      a {
+        font-size: 0.875rem;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .navigation {
+    .container {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .navigation {
+    .brand-logo {
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+
+    .top-menu {
+      .openbtn {
+        padding: 10px 10px;
+      }
+
+      .closebtn {
+        padding: 10px 10px;
+      }
+    }
+  }
+
+  .navigation ul {
+    li {
+      padding: 0 50px;
+
+      a {
+        padding: 15px 10px;
+      }
+    }
+
+    &.show {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) and (orientation: landscape) {
+  .navigation ul {
+    right: -15px;
+    left: 30%;
+
+    li {
+      margin-bottom: 20px;
+      padding: 0 20px;
+
+      a {
+        font-size: 0.875rem;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    .top-menu {
+      position: relative;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .openbtn {
+        display: none;
+      }
+
+      .closebtn {
+        display: none;
+      }
+    }
+  }
+
+  .navigation ul {
+    position: relative;
+    z-index: auto;
+    height: 100%;
+    width: 100%;
+    padding-top: 0;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    li {
+      margin-bottom: 0;
+      margin-left: 10px;
+      padding: 0;
+      height: 48px;
+
+      a {
+        padding: 10px 10px;
+        height: 100%;
+        line-height: 1.7;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .navigation {
+    .brand-logo {
+      font-size: 1.75rem;
+    }
+  }
+
+  .navigation ul {
+    li {
+      margin-left: 15px;
+
+      a {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .navigation {
+    .brand-logo {
+      font-size: 1.875rem;
+    }
+  }
+
+  .navigation ul {
+    li {
+      a {
+        font-size: 1.125rem;
+        padding: 8px 10px;
+        line-height: 1.7;
+      }
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .navigation ul {
+    li {
+      a {
+        padding: 10px 8px;
+      }
+    }
+  }
+}
