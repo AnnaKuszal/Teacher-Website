@@ -1,13 +1,34 @@
-
 /* TABLE OF CONTENTS */
 /*
-
+1. Loader hiding
+2. Rollout hidden list
+3. Modal for images
+4. Activating navigation links
+5. Mobile navigation & buttons - show/hide
+6. Fix elements display problems on window resizing
+7. Activating side menu links
+8. Side menu & buttons - show/hide
+9. Activating content links
+10. Carousel content for @media (min-width: 320px)
+11. Detect screen orientation & fix elements display bugs
 */
 //-------------------------------------------------------//
 
 'use strict';
 
-/* Rollout hidden list */
+/* 1. Loader hiding */
+
+document.addEventListener('readystatechange', function() {
+  if (document.readyState !== 'complete') {
+    document.querySelector('body').style.visibility = 'hidden';
+    document.querySelector('#loader').style.visibility = 'visible';
+  } else {
+    document.querySelector('#loader').style.display = 'none';
+    document.querySelector('body').style.visibility = 'visible';
+  }
+});
+
+/* 2. Rollout hidden list */
 
 const rollup = document.querySelector('#rollup');
 const rollupContent = document.querySelector('#rollup-content');
@@ -25,7 +46,7 @@ rollup.addEventListener('click', function() {
   }
 });
 
-/* Modal for images */
+/* 3. Modal for images */
 
 const modal = document.getElementById('modal');
 const modalContentWrapper = document.getElementById('modal-content-wrapper');
@@ -57,7 +78,7 @@ window.onclick = function(event) {
   }
 };
 
-/* Activating navigation links */
+/* 4. Activating navigation links */
 
 const navLinks = document.getElementById('ul01').querySelectorAll('a');
 let bodyWidthVal = document.body.clientWidth;
@@ -112,7 +133,7 @@ window.onscroll = function() {
   }
 };
 
-/* Mobile navigation & buttons - show/hide */
+/* 5. Mobile navigation & buttons - show/hide */
 
 openBtnNav.addEventListener('click', function() {
   topNav.classList.add('show');
@@ -152,7 +173,7 @@ document.body.onresize = function() {
   }
 };
 
-/* Activating side menu links */
+/* 7. Activating side menu links */
 
 const sideMenuLinks = document.getElementById('ul02').querySelectorAll('a');
 const openBtnMenu = document.getElementById('openbtnMenu');
@@ -209,7 +230,7 @@ for (let sideMenuLink of sideMenuLinks) {
   sideMenuLink.addEventListener('click', sideBtnClickHandler);
 }
 
-/* Side menu & buttons - show/hide */
+/* 8. Side menu & buttons - show/hide */
 
 openBtnMenu.addEventListener('click', function() {
   sideMenu.classList.add('show');
@@ -223,7 +244,7 @@ closeBtnMenu.addEventListener('click', function() {
   openBtnMenu.style.display = 'block';
 });
 
-/* Activating content links */
+/* 9. Activating content links */
 
 const contentLinks = document.querySelectorAll('.content ol li a');
 
@@ -233,7 +254,7 @@ for (let contentLink of contentLinks) {
   });
 }
 
-/* Carousel content for @media (min-width: 320px)   if (bodyWidthVal < 576) */
+/* 10. Carousel content for @media (min-width: 320px)   if (bodyWidthVal < 576) */
 
 if (bodyWidthVal < 576) {
   const colsWrapper = document.querySelector('.xs-recommended .row');
@@ -247,7 +268,7 @@ if (bodyWidthVal < 576) {
   }
 }
 
-/* Detect screen orientation & fix elements display bugs */
+/* 11. Detect screen orientation & fix elements display bugs */
 
 /* // Get orientation type
 let current_mode = screen.orientation;
