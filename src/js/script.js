@@ -126,6 +126,32 @@ closeBtnNav.addEventListener('click', function() {
   openBtnNav.style.display = 'block';
 });
 
+/* 6. Fix elements display problems on window resizing */
+
+document.body.onresize = function() {
+  let bodyWidthValCurrent = document.body.clientWidth;
+  let topMenuWidthValCurrent = topMenu.clientWidth;
+  const skillsBoxesAll = document.querySelectorAll('.skills .carousel-item .skills-box');
+
+  // Remove mobile menu buttons
+  if (bodyWidthValCurrent >= 751 && topMenuWidthValCurrent > 500) {
+    topNav.classList.remove('show');
+    openBtnNav.style.display = 'none';
+    closeBtnNav.style.display = 'none';
+  }
+
+  if (bodyWidthValCurrent < 750 && topMenuWidthValCurrent < 500) {
+    openBtnNav.style.display = 'block';
+  }
+
+  // Fix carousel elements display
+  if (bodyWidthValCurrent < 560) {
+    for (let skillsBox of skillsBoxesAll) {
+      skillsBox.style.height = '148px';
+    }
+  }
+};
+
 /* Activating side menu links */
 
 const sideMenuLinks = document.getElementById('ul02').querySelectorAll('a');
