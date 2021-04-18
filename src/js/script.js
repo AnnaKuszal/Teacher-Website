@@ -57,6 +57,75 @@ window.onclick = function(event) {
   }
 };
 
+/* Activating navigation links */
+
+const navLinks = document.getElementById('ul01').querySelectorAll('a');
+let bodyWidthVal = document.body.clientWidth;
+const openBtnNav = document.getElementById('openbtnNav');
+const closeBtnNav = document.getElementById('closebtnNav');
+const topNav = document.getElementById('ul01');
+const topMenu = document.getElementById('top-menu');
+let topMenuWidthVal = topMenu.clientWidth;
+
+for (let navLink of navLinks) {
+  navLink.addEventListener('click', function() {
+    if (bodyWidthVal < 768 && topMenuWidthVal < 500) {
+      topNav.classList.remove('show');
+      openBtnNav.style.display = 'block';
+      closeBtnNav.style.display = 'none';
+    }
+
+    for (let navLink of navLinks) {
+      navLink.classList.remove('active');
+    }
+
+    navLink.classList.add('active');
+    const idFromNavLink = navLink.getAttribute('href').replace('#', '');
+    window.location.hash = idFromNavLink;
+  });
+}
+
+const scrollStopElements = document.querySelectorAll('.scroll-stop');
+
+window.onscroll = function() {
+  const windowInnerHeight = window.innerHeight;
+
+  for (let scrollStopElement of scrollStopElements) {
+    const rectObjectTop = scrollStopElement.getBoundingClientRect().top;
+
+    const scrollStopElementID = scrollStopElement.getAttribute('id');
+
+    if ((rectObjectTop <= windowInnerHeight/2 && rectObjectTop >= 0) ||
+       (rectObjectTop < windowInnerHeight-windowInnerHeight/4 && scrollStopElementID == 'footer')) {
+
+      const scrollStopElementID = scrollStopElement.getAttribute('id');
+
+      for (let navLink of navLinks) {
+        navLink.classList.remove('active');
+        const idFromNavLink = navLink.getAttribute('href').replace('#', '');
+
+        if (scrollStopElementID == idFromNavLink) {
+          navLink.classList.add('active');
+        }
+      }
+    }
+  }
+};
+
+/* Mobile navigation & buttons - show/hide */
+
+openBtnNav.addEventListener('click', function() {
+  topNav.classList.add('show');
+  openBtnNav.style.display = 'none';
+  closeBtnNav.style.display = 'block';
+});
+
+closeBtnNav.addEventListener('click', function() {
+  topNav.classList.remove('show');
+  closeBtnNav.style.display = 'none';
+  openBtnNav.style.display = 'block';
+});
+
 /* Activating side menu links */
 
 const sideMenuLinks = document.getElementById('ul02').querySelectorAll('a');
