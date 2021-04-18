@@ -246,3 +246,112 @@ if (bodyWidthVal < 576) {
     colsWrapper.appendChild(col);
   }
 }
+
+/* Detect screen orientation & fix elements display bugs */
+
+/* // Get orientation type
+let current_mode = screen.orientation;
+console.log(current_mode);
+console.log(current_mode.type);
+*/
+
+//Navigation elements
+const brandEl = document.querySelector('.brand-logo');
+const brandElStyle = getComputedStyle(brandEl);
+let brandElFontSize = brandElStyle.fontSize;
+
+const smMenuButtons = document.querySelectorAll('.top-menu button');
+const smMenuButtonsStyle = getComputedStyle(smMenuButtons[0]);
+let smMenuButtonsPadding = smMenuButtonsStyle.padding;
+
+const btnIcons = document.querySelectorAll('.top-menu button i');
+const btnIconsStyle = getComputedStyle(btnIcons[0]);
+let btnIconsFontSize = btnIconsStyle.fontSize;
+let btnIconsHeight = btnIconsStyle.height;
+let btnIconsLineHeight = btnIconsStyle.lineHeight;
+
+//Header elements
+const headerTitle = document.querySelector('.page-header .title');
+const headerTitleStyle = getComputedStyle(headerTitle);
+let headerTitleFontSize = headerTitleStyle.fontSize;
+let headerTitleMarginBottom = headerTitleStyle.marginBottom;
+
+const headerTitleSpan = document.querySelector('.page-header .title span');
+const headerTitleSpanStyle = getComputedStyle(headerTitleSpan);
+let headerTitleSpanFontSize = headerTitleSpanStyle.fontSize;
+
+const headerSubtitle = document.querySelector('.page-header .subtitle');
+const headerSubtitleStyle = getComputedStyle(headerSubtitle);
+let headerSubtitleFontSize = headerSubtitleStyle.fontSize;
+let headerSubtitleMarginBottom = headerSubtitleStyle.marginBottom;
+
+const headerPhoto = document.querySelector('.page-header .photo-sm');
+const headerPhotoStyle = getComputedStyle(headerPhoto);
+let headerPhotoWidth = headerPhotoStyle.width;
+let headerPhotoHeight = headerPhotoStyle.height;
+
+
+// Change orientation
+screen.orientation.addEventListener('change', function() {
+
+  let navHeight = document.querySelector('.navigation').clientHeight;
+  let navWidth = document.querySelector('.navigation').clientWidth;
+  let headerHeight = document.querySelector('.page-header').clientHeight;
+
+  if (screen.orientation.type === 'landscape-primary') {
+
+    // Fix navigation elements display in landscape view
+    if (navHeight < 52 && navWidth < 900) {
+      brandEl.style.fontSize = '0.9rem';
+
+      for (let smMenuButton of smMenuButtons) {
+        smMenuButton.style.padding = '0';
+      }
+
+      for (let btnIcon of btnIcons) {
+        btnIcon.style.fontSize = '18px';
+        btnIcon.style.height = '23px';
+        btnIcon.style.lineHeight = '25px';
+      }
+    }
+
+    // Fix header elements display in horizontal view
+    if (headerHeight < 400) {
+      headerTitle.style.fontSize = '1.9rem';
+      headerTitle.style.marginBottom = '0.5rem';
+      headerTitleSpan.style.fontSize = '1.9rem';
+      headerSubtitle.style.fontSize = '0.9rem';
+      headerSubtitle.style.marginBottom = '0.5rem';
+      headerPhoto.style.width = '60px';
+      headerPhoto.style.height = '60px';
+    }
+  }
+
+  // Fix navigation elements display in portrait view
+  else if (screen.orientation.type === 'portrait-primary') {
+
+    if (navHeight > 40 && navWidth < 500) {
+      brandEl.style.fontSize = brandElFontSize;
+
+      for (let smMenuButton of smMenuButtons) {
+        smMenuButton.style.padding = smMenuButtonsPadding;
+      }
+
+      for (let btnIcon of btnIcons) {
+        btnIcon.style.fontSize = btnIconsFontSize;
+        btnIcon.style.height = btnIconsHeight;
+        btnIcon.style.lineHeight = btnIconsLineHeight;
+      }
+    }
+
+    if (headerHeight > 400) {
+      headerTitle.style.fontSize = headerTitleFontSize;
+      headerTitle.style.marginBottom = headerTitleMarginBottom;
+      headerTitleSpan.style.fontSize = headerTitleSpanFontSize;
+      headerSubtitle.style.fontSize = headerSubtitleFontSize;
+      headerSubtitle.style.marginBottom = headerSubtitleMarginBottom;
+      headerPhoto.style.width = headerPhotoWidth;
+      headerPhoto.style.height = headerPhotoHeight;
+    }
+  }
+});
