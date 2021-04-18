@@ -1,0 +1,44 @@
+@mixin grid($prefix) {
+  @for $i from 1 through 12 {
+    .col-#{$prefix}-#{$i} {
+      $width: 100% / 12 * $i;
+      flex: 0 0 $width;
+      max-width: $width;
+    }
+  }
+}
+
+
+@mixin a-btnStyle {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: $text-color-3;
+  background-color: $background-color-2;
+  border-radius: 5px;
+  text-align: center;
+  text-shadow: $text-shadow-1;
+}
+
+@mixin a-btnHoverActive {
+  color: $text-color-2;
+  background-color: $background-color-3;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+@mixin menuBtnStyle {
+  color: $text-color-3;
+  background-color: $background-color-2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@mixin hover-animation($all: false, $color-time: 0.2s, $bg-color-time: 0.2s) {
+  @if ($all) {
+    transition: all 0.2s;
+  } @else {
+    transition: color $color-time, background-color $bg-color-time;
+  }
+}
