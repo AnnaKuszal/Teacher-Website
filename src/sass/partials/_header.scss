@@ -20,6 +20,17 @@
       }
     }
   }
+
+  .scroll-stop {
+    height: 10vh;
+    width: 10px;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .scroll-stop-home {
+    bottom: 100%;
+  }
 }
 
 .page-header .splash-inner {
