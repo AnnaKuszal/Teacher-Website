@@ -11,6 +11,59 @@ body {
   text-align: center;
 }
 
+.preload {
+  width: 100%;
+  height: 100vh;
+  background-color: $background-color-3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square1 {
+  width: 80px;
+  height: 80px;
+  background-color: $background-color-2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 2s linear infinite;
+
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+}
+
+.square2 {
+  width: 70px;
+  height: 70px;
+  background-color: $background-color-3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square3 {
+  width: 60px;
+  height: 60px;
+  background-color: $background-color-2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square4 {
+  width: 50px;
+  height: 50px;
+  background-color: $background-color-3;
+}
+
 /* Media */
 
 @media (min-width: 320px) {
