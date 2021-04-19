@@ -18,7 +18,7 @@
     "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
     "build:sass": "node-sass --output-style compact -o dist/css src/sass",
     "build:autoprefixer": "postcss dist/css/*.css --use autoprefixer -r",
-    "build:css-minify": "css-minify -d src/css/ -o dist/css/",
+    "build:css-minify": "css-minify -d dist/css/ -o dist/css/",
     "build:js": "terser src/js/*.js -o dist/js/script.min.js  -c -m",
     "build:images": "imagemin src/images/* --out-dir=src/images/converted --plugin.webp.quality=80",
     "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
