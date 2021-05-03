@@ -1,0 +1,43 @@
+/* Colors */
+/* Fonts */
+/* Font sizes */
+/* Borders */
+/* Shadows */
+/* Transitions */
+/* Breakpoints */
+/*Most popular devices screen sizes*/
+/*
+
+Custom breakpoint:
+min-width: 320px
+  320x533 mobile
+
+min-width: 360px
+  (1) 360x640 mobile
+  (3) 414x896 mobile
+
+Bootstrap breakpoints:
+SM
+min-width: 576px
+  (4) 601x962 tablet
+
+MD
+min-width: 768px
+  (1) 768x1024 tablet
+  (3) 800x1280 tablet
+
+LG
+min-width: 992px
+  (6) 1024x1366 tablet
+
+XL
+min-width: 1200px
+  (7/2) 1280x800 desktop/tablet
+  (4) 1440x900 desktop
+  (1) 1366x768 desktop
+
+Custom breakpoint:
+min-width: 1920px
+  (2) 1920x1080 desktop
+
+*/
